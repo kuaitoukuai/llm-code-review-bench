@@ -1,0 +1,68 @@
+# ============================================================
+# 题库配置模板：把这里改成你自己的项目
+#
+# path 支持相对路径（相对本文件所在仓库）或绝对路径。
+# 每个项目按最近修改时间选取最多 max_files 个文件，每文件只冻结前 max_lines_per_file 行。
+# 冻结后的内容写进 tasks/<id>/，与源仓库后续改动脱钩——这是可比性的前提。
+#
+# 改完执行：
+#   python src/cli.py task <id>          # 单个任务冻结
+#   python src/cli.py prepare --expected N   # 批量冻结或复用
+# ============================================================
+
+[[project]]
+id = "demo-project"
+name = "内置演示（`cli.py demo` 用）"
+path = "demo/demo-project"
+# 保持 enabled = true，`python src/cli.py demo` 才能开箱即跑。
+# 接自己的项目后把它改成 false，否则它会被 prepare 一起冻结。
+enabled = true
+include = ["**/*.py"]
+exclude = ["**/__pycache__/**"]
+max_files = 3
+max_lines_per_file = 400
+
+
+# ---------- 示例一：Python 后端 ----------
+[[project]]
+id = "p01-backend"
+name = "示例后端服务"
+path = "<你的项目路径>"
+enabled = false
+include = ["**/*.py"]
+# exclude 一定要写全。构建产物被冻进题库会直接毁掉这道题（见 README「已知局限」第 9 条）
+exclude = [
+  "**/node_modules/**", "**/__pycache__/**", "**/.venv/**",
+  "**/dist/**", "**/build/**", "**/.next/**", "**/target/**",
+  "**/*.min.js", "**/*.test.*", "**/test_*.py",
+]
+max_files = 5
+max_lines_per_file = 300
+
+
+# ---------- 示例二：前后端混合 ----------
+[[project]]
+id = "p02-fullstack"
+name = "示例全栈项目"
+path = "<你的项目路径>"
+enabled = false
+include = ["**/*.py", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"]
+exclude = [
+  "**/node_modules/**", "**/__pycache__/**",
+  "**/dist/**", "**/build/**", "**/.next/**",
+  "**/*.test.*", "**/test_*.py",
+]
+max_files = 5
+max_lines_per_file = 300
+
+
+# ---------- 示例三：C / 嵌入式 ----------
+[[project]]
+id = "p03-firmware"
+name = "示例固件"
+path = "<你的项目路径>"
+enabled = false
+include = ["**/*.c", "**/*.h", "**/*.cpp"]
+exclude = ["**/build/**", "**/managed_components/**"]
+max_files = 5
+max_lines_per_file = 300

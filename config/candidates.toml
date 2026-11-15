@@ -1,0 +1,67 @@
+# ============================================================
+# 被测候选清单（产品 + 模型）
+#
+# id 用「产品/模型」全称：本系统不区分"模型能力"与"产品能力"，
+# 测出来的是组合能力，半年后回看时简称一定会被误读。
+#
+# vendor 是关键字段：判断"是否同一家"只看它，不看宣传口径。
+# 同一家出的两个模型互相支持，不算两次独立共识。
+# ============================================================
+
+# ---------- 内置演示用的三家（`cli.py demo` 直接引用这三个 id）----------
+# 换成你自己的候选时，这三个可以删掉或把 enabled 改成 false。
+[[candidate]]
+id = "kimicode/kimi-k2.5"
+product = "Kimi Code"
+model = "kimi-k2.5"
+vendor = "moonshot"
+enabled = true
+
+[[candidate]]
+id = "workbuddy/claude-sonnet-5.5"
+product = "WorkBuddy"
+model = "claude-sonnet-5.5"
+vendor = "anthropic"
+enabled = true
+
+[[candidate]]
+id = "workbuddy/deepseek-v4.1-flash"
+product = "WorkBuddy"
+model = "deepseek-v4.1-flash"
+vendor = "deepseek"
+enabled = true
+
+
+# ---------- 换成你自己的候选 ----------
+[[candidate]]
+id = "productA/model-x"
+product = "Product A"
+model = "model-x"
+vendor = "<厂商>"
+enabled = false
+
+[[candidate]]
+id = "productB/model-y"
+product = "Product B"
+model = "model-y"
+vendor = "<厂商>"
+enabled = true
+
+# 版本未知的产品（例如只有 current-agent 这种滚动标签）也可以参评，
+# 但要在报告里注明"精确版本未知"，不要拿它外推底层模型能力。
+[[candidate]]
+id = "productC/current-agent"
+product = "Product C"
+model = "current-agent"
+vendor = "<厂商>"
+enabled = false
+
+
+# ------------------------------------------------------------
+# 新候选也可以由 agent 自助登记（启动.txt 走这条路径）：
+#   python src/cli.py register-candidate "产品/模型" \
+#     --product "产品名" --model "模型名" --vendor "厂商名"
+#
+# 注意：register-candidate 遇同名只复用、不更新 vendor；
+# 要改 vendor 直接编辑本文件。
+# ------------------------------------------------------------

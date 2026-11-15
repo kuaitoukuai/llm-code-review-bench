@@ -1,0 +1,20 @@
+# ---------- 评测数据 ----------
+# runs/ 存原始作答（含被测项目源码片段）、tasks/ 存冻结的题库源码、
+# reports/ 存结果。默认不入库，避免把业务代码推到公开仓库。
+# 需要留痕时，把下面三行注释掉即可（私有仓库推荐这么做）。
+runs/
+tasks/
+reports/
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ---------- 编辑器 / 系统 ----------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
