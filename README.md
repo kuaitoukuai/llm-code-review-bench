@@ -9,6 +9,9 @@
 > A self-hosted benchmark for LLM code-review capability. Same prompt, same frozen code,
 > same output schema for every candidate; dedupe by cluster, adjudicate blind, score with
 > a recomputable layer. Zero third-party dependencies, Python ≥ 3.11. Docs are in Chinese.
+>
+> 双仓同步：GitHub [kuaitoukuai/llm-code-review-bench](https://github.com/kuaitoukuai/llm-code-review-bench) ·
+> Gitee [smallpencil/llm-code-review-bench](https://gitee.com/smallpencil/llm-code-review-bench)
 
 ---
 
